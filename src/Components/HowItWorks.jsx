@@ -36,8 +36,8 @@ const steps = [
 export default function HowItWorks() {
     const [activeStep, setActiveStep] = useState(0);
     return (
-        <section className="pt-10 bg-white dark:bg-gray-950">
-            <div className="max-w-7xl mx-auto px-6 md:px-8">
+        <section className="pt-15 bg-white dark:bg-gray-950 w-full md:w-[90%] mx-auto">
+            <div className="max-w-7xl mx-auto px-8 md:px-0">
                 <div className="text-center mb-16">
                     <h2 className="text-4xl font-bold tracking-tight">How It Works</h2>
                     <p className="text-gray-600 dark:text-gray-400 mt-4 text-lg">

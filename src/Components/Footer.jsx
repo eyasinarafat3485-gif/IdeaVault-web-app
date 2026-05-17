@@ -51,7 +51,7 @@ const socialLinks = [
 
 const Footer = () => {
   return (
-    <footer className="relative mt-20 border-t border-gray-200 dark:border-white/10 bg-white dark:bg-black overflow-hidden">
+    <footer className="relative mt-10 md:mt-15 border-t border-gray-200 dark:border-white/10 bg-white dark:bg-black overflow-hidden">
       <div className="absolute inset-0 -z-10">
         <div className="absolute top-0 left-1/2 h-72 w-72 -translate-x-1/2 rounded-full bg-orange-500/10 blur-3xl" />
       </div>
@@ -114,7 +114,7 @@ const Footer = () => {
                   </p>
 
                   <p className="text-sm font-medium text-black dark:text-white">
-                    support@devplatform.com
+                    support@ideavault.com
                   </p>
                 </div>
               </div>
@@ -141,7 +141,7 @@ const Footer = () => {
         <div className="flex flex-col md:flex-row items-center justify-between gap-4">
 
           <p className="text-sm text-gray-600 dark:text-gray-400 text-center md:text-left">
-            © {new Date().getFullYear()} DevPlatform. All rights reserved.
+            © {new Date().getFullYear()} IdeaVault. All rights reserved.
           </p>
 
           <div className="flex items-center gap-5 text-sm">

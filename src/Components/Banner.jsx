@@ -63,7 +63,7 @@ export default function StartupBanner() {
   }, [isAutoPlaying, currentSlide]);
 
   return (
-    <div className="relative h-screen min-h-[540px] overflow-hidden bg-black">
+    <div className="relative h-screen max-h-[500px] md:min-h-[540px] overflow-hidden bg-black">
       <div  className="flex h-full w-full transition-transform duration-700 ease-in-out" style={{ transform: `translateX(-${currentSlide * 100}%)` }}>
         {slides.map((slide) => (
           <div key={slide.id} className="relative h-full w-full flex-shrink-0">
@@ -75,16 +75,16 @@ export default function StartupBanner() {
 
             {/* Content */}
             <div className="relative z-10 flex h-full items-center">
-              <div className="max-w-7xl mx-auto px-6 md:px-8 lg:px-12 w-full">
+              <div className="max-w-7xl mx-auto px-6 md:px-8 lg:px-14 w-full">
                 <div className="max-w-2xl space-y-5">
                   {/* Icon */}
-                  <div className="inline-flex items-center justify-center w-20 h-20 rounded-2xl bg-white/10 backdrop-blur-xl border border-white/20 text-white">
+                  <div className="inline-flex items-center justify-center w-20 h-20 rounded-2xl bg-white/10 backdrop-blur-xl border border-white/20 text-white ">
                     {slide.icon}
                   </div>
 
                   {/* Text */}
                   <div className="space-y-4">
-                    <h1 className="text-5xl md:text-6xl lg:text-7xl font-bold text-white tracking-tighter leading-tight">
+                    <h1 className="text-4xl md:text-6xl lg:text-7xl font-bold text-white tracking-tighter leading-tight ">
                       {slide.title}
                     </h1>
                     <p className="text-2xl md:text-3xl text-white/90 font-light">
