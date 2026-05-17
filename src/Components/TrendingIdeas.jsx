@@ -50,14 +50,7 @@ export default function HowItWorks() {
                     <div className="hidden md:block absolute top-12 left-[15%] right-[15%] h-0.5 bg-gradient-to-r from-violet-400 via-blue-400 to-emerald-400" />
 
                     {steps.map((step, index) => (
-                        <div
-                            key={step.id}
-                            onClick={() => setActiveStep(index)}
-                            className={`group relative bg-white dark:bg-gray-900 p-8 rounded-3xl border transition-all cursor-pointer hover:-translate-y-2 ${activeStep === index
-                                    ? 'border-violet-600 shadow-xl shadow-violet-100 dark:shadow-none scale-105'
-                                    : 'border-gray-300 dark:border-gray-800 hover:border-gray-200'
-                                }`}
-                        >
+                        <div key={step.id} onClick={() => setActiveStep(index)} className={`group relative bg-white dark:bg-gray-900 p-8 rounded-3xl border transition-all cursor-pointer hover:-translate-y-2 ${activeStep === index ? 'border-violet-600 shadow-xl shadow-violet-100 dark:shadow-none scale-105' : 'border-gray-300 dark:border-gray-800 hover:border-gray-200'}`} >
                             <div className={`w-16 h-16 flex items-center justify-center rounded-2xl mb-6 transition-colors
                 ${activeStep === index ? `bg-${step.color}-100 text-${step.color}-600` : 'bg-gray-100 dark:bg-gray-800 text-gray-600'}`}>
                                 {step.icon}

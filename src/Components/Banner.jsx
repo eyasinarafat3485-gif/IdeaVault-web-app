@@ -2,7 +2,7 @@
 
 import React, { useState, useEffect } from 'react';
 import Image from 'next/image';
-import { FaChevronLeft, FaChevronRight, FaLightbulb, FaRocket, FaShieldAlt, FaUsers } from 'react-icons/fa';
+import { FaChevronLeft, FaChevronRight, FaLightbulb, FaShieldAlt } from 'react-icons/fa';
 import { FaSprayCanSparkles } from 'react-icons/fa6';
 import { HiLightningBolt } from 'react-icons/hi';
 
