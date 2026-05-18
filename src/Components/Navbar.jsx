@@ -1,51 +1,6 @@
-// 'use client'
-// // import { authClient } from '@/lib/auth-client';
-// import { Avatar, Button } from '@heroui/react';
-// import Image from 'next/image';
-// import Link from 'next/link';
-// import { usePathname } from 'next/navigation';
-// import React, { useState } from 'react';
-// import { BiMenu, BiX } from 'react-icons/bi';
-// import logo from '../../public/assets/idea.png'
-
-// const Navbar = () => {
-//     const [open, setOpen] = useState(false);
-//     const pathname = usePathname();
-//     // const { data: session } = authClient.useSession();
-//     // const user = session?.user;
-
-//     // const handleSignOut = async () => {
-//     //     await authClient.signOut();
-//     // }
-
-//     return (
-//         <nav className='flex justify-between bg-white items-center px-5 lg:px-14'>
-//             <div className='flex gap-2 items-center'>
-//                 <Image src={logo} width={70} height={20} alt='logo' />
-//                 <p className='font-bold text-3xl'>IdeaVault </p>
-//             </div>
-//             <ul className='flex justify-between gap-6'>
-//                 <li><Link href={'/'}>Home</Link></li>
-//                 <li><Link href={'/ideas'}>Ideas</Link></li>
-//                 <li><Link href={'/add-idea'}>Add Idea</Link></li>
-//                 <li><Link href={'/my-ideas'}>My Ideas</Link></li>
-//                 <li><Link href={'/my-interactions'}>My Interactions</Link></li>
-//             </ul>
-
-//             <ul className='flex justify-between gap-4'>
-//                  <li><Link href={'/login'}>Login</Link></li>
-//                 <li><Link href={'/register'}>Register</Link></li>
-//             </ul>
-//         </nav>
-//     );
-// };
-
-// export default Navbar;
-
-
 'use client';
 
-import { Avatar, Button } from '@heroui/react';
+import { Button } from '@heroui/react';
 import Image from 'next/image';
 import Link from 'next/link';
 import { usePathname } from 'next/navigation';
@@ -58,7 +13,6 @@ const Navbar = () => {
     const [isOpen, setIsOpen] = useState(false);
     const pathname = usePathname();
 
-    // মেনু ওপেন থাকলে স্ক্রল বন্ধ রাখার জন্য (UX Improvement)
     useEffect(() => {
         if (isOpen) {
             document.body.style.overflow = 'hidden';
@@ -94,7 +48,7 @@ const Navbar = () => {
                 <ul className='hidden lg:flex items-center gap-8'>
                     {navLinks.map((link) => (
                         <li key={link.href}>
-                            <Link href={link.href} className={`text-sm font-medium transition-colors hover:text-indigo-600 ${pathname === link.href ? 'text-indigo-600 font-bold' : 'text-gray-600'}`}>
+                            <Link href={link.href} className={`font-semibold transition-colors hover:text-indigo-600 text-lg ${pathname === link.href ? 'text-indigo-600 font-semibold text-lg' : 'text-gray-600 text-2xl'}`}>
                                 {link.name}
                             </Link>
                         </li>
@@ -103,8 +57,8 @@ const Navbar = () => {
 
                 {/* Desktop Auth Buttons */}
                 <div className='hidden lg:flex items-center gap-4'>
-                    <Link href="/login" className="text-sm font-medium text-gray-600 hover:text-indigo-600">Login</Link>
-                    <Button as={Link} href="/register" color="primary" variant="flat" className="font-semibold bg-indigo-600 text-white px-6 rounded-xl" >
+                    <Link href="/login" className="font-semibold text-lg text-gray-600 hover:text-indigo-600">Login</Link>
+                    <Button as={Link} href="/register" color="primary" variant="flat" className="font-semibold text-lg bg-indigo-600 text-white px-6 rounded-md" >
                         Register
                     </Button>
                 </div>
@@ -120,25 +74,31 @@ const Navbar = () => {
             {/* Mobile Dropdown Menu */}
             <AnimatePresence>
                 {isOpen && (
-                    <motion.div initial={{ opacity: 0, height: 0 }} animate={{ opacity: 1, height: '100vh' }} exit={{ opacity: 0, height: 0 }} transition={{ duration: 0.3, ease: "easeInOut" }} className='fixed inset-0 top-20 z-40 bg-white lg:hidden overflow-y-auto' >
-                        <div className='flex flex-col p-6 gap-6'>
+                    <motion.div
+                        initial={{ opacity: 0, scale: 0.9, x: 20 }}
+                        animate={{ opacity: 1, scale: 1, x: 0 }}
+                        exit={{ opacity: 0, scale: 0.9, x: 20 }}
+                        transition={{ duration: 0.2, ease: "easeOut" }}
+                        className='absolute right-3 top-20 z-50 bg-white lg:hidden overflow-hidden shadow-2xl rounded-md border border-gray-100 w-45'>
+
+                        <div className='flex flex-col gap-1'>
                             {/* Mobile Links */}
-                            <ul className='flex flex-col gap-5 border-b border-gray-100 pb-8'>
+                            <ul className='flex flex-col gap-2'>
                                 {navLinks.map((link) => (
                                     <li key={link.href}>
-                                        <Link onClick={() => setIsOpen(false)} href={link.href} className={`text-xl font-semibold ${pathname === link.href ? 'text-indigo-600' : 'text-gray-800'}`} >
+                                        <Link onClick={() => setIsOpen(false)} href={link.href} className={`text-lg font-medium block p-1 rounded-md transition-colors ${pathname === link.href ? 'text-indigo-600 bg-indigo-50' : 'text-gray-800 hover:bg-gray-50'}`} >
                                             {link.name}
                                         </Link>
                                     </li>
                                 ))}
                             </ul>
 
-                            {/* Mobile Auth Links */}
-                            <div className='flex flex-col gap-4'>
-                                <Button as={Link} href="/login" onClick={() => setIsOpen(false)} variant="bordered" className="w-full text-lg font-semibold h-14 border-gray-200" >
+                            <hr className="border-gray-100" />
+                            <div className='flex flex-col gap-2'>
+                                <Button as={Link} href="/login" onClick={() => setIsOpen(false)} variant="flat" className="w-full h-10 bg-gray-100 text-gray-700 font-semibold text-lg">
                                     Login
                                 </Button>
-                                <Button as={Link} href="/register" onClick={() => setIsOpen(false)} color="primary" className="w-full text-lg font-semibold h-14 bg-indigo-600 shadow-lg shadow-indigo-200">
+                                <Button as={Link} href="/register" onClick={() => setIsOpen(false)} color="primary" className="w-full font-semibold text-lg h-10 bg-indigo-600">
                                     Register
                                 </Button>
                             </div>

@@ -27,7 +27,7 @@ const slides = [
   },
   {
     id: 3,
-    title: "Future-Proof Infrastructure",
+    title: "Future-Proof ",
     subtitle: "Decentralized Ecosystem for Tomorrow's Leaders",
     description: "Build on a secure, scalable foundation designed for Web3, Deep Tech, and Bio-Digital innovations.",
     icon: <FaShieldAlt className="w-12 h-12" />,
@@ -57,14 +57,14 @@ export default function StartupBanner() {
     if (isAutoPlaying) {
       interval = setInterval(() => {
         nextSlide();
-      }, 10000); 
+      }, 10000);
     }
     return () => clearInterval(interval);
   }, [isAutoPlaying, currentSlide]);
 
   return (
-    <div className="relative h-screen max-h-[500px] md:min-h-[540px] overflow-hidden bg-black">
-      <div  className="flex h-full w-full transition-transform duration-700 ease-in-out" style={{ transform: `translateX(-${currentSlide * 100}%)` }}>
+    <div className="relative h-screen max-h-[530px] md:min-h-[540px] overflow-hidden bg-black">
+      <div className="flex h-full w-full transition-transform duration-700 ease-in-out" style={{ transform: `translateX(-${currentSlide * 100}%)` }}>
         {slides.map((slide) => (
           <div key={slide.id} className="relative h-full w-full flex-shrink-0">
             <Image src={slide.image} alt={slide.title} fill className="object-cover" priority />
@@ -76,21 +76,21 @@ export default function StartupBanner() {
             {/* Content */}
             <div className="relative z-10 flex h-full items-center">
               <div className="max-w-7xl mx-auto px-6 md:px-8 lg:px-14 w-full">
-                <div className="max-w-2xl space-y-5">
+                <div className="max-w-2xl space-y-2 md:space-y-5">
                   {/* Icon */}
-                  <div className="inline-flex items-center justify-center w-20 h-20 rounded-2xl bg-white/10 backdrop-blur-xl border border-white/20 text-white ">
+                  <div className="inline-flex items-center justify-center md:w-20 md:h-20 w-12 h-12 rounded-2xl bg-white/10 backdrop-blur-xl border border-white/20 text-white ">
                     {slide.icon}
                   </div>
 
                   {/* Text */}
                   <div className="space-y-4">
-                    <h1 className="text-4xl md:text-6xl lg:text-7xl font-bold text-white tracking-tighter leading-tight ">
+                    <h1 className="text-3xl md:text-6xl lg:text-7xl font-bold text-white tracking-tighter leading-tight ">
                       {slide.title}
                     </h1>
-                    <p className="text-2xl md:text-3xl text-white/90 font-light">
+                    <p className="text-[22px] md:text-3xl text-white/90 font-light">
                       {slide.subtitle}
                     </p>
-                    <p className="text-lg md:text-xl text-white/80 max-w-md">
+                    <p className=" text-md md:text-xl text-white/80 max-w-md">
                       {slide.description}
                     </p>
                   </div>
@@ -123,41 +123,37 @@ export default function StartupBanner() {
         ))}
       </div>
 
-      {/* Navigation */}
-      <div className="absolute bottom-12 left-1/2 -translate-x-1/2 z-20 flex items-center gap-4">
-        <button onClick={prevSlide} className="w-12 h-12 flex items-center justify-center rounded-full border border-white/30 hover:bg-white/10 text-white backdrop-blur-xl transition-all active:scale-90" >
-          <FaChevronLeft className="w-6 h-6" />
+      {/* Navigation Arrows */}
+      <div className="absolute inset-0 z-30 flex md:items-center items-end justify-between pointer-events-none pb-1 md:pb-0 px-2">
+
+        {/* Left Arrow */}
+        <button
+          onClick={prevSlide}
+          className="h-7 w-7 md:w-10 md:h-10 flex items-center justify-center rounded-full border border-white/30 bg-black/20 hover:bg-white/10 text-white backdrop-blur-md transition-all active:scale-90 pointer-events-auto"
+        >
+          <FaChevronLeft className="w-5 h-5 md:w-7 md:h-7" />
         </button>
 
-        <div className="flex gap-3 px-4">
-          {slides.map((_, idx) => (
-            <button
-              key={idx}
-              onClick={() => goToSlide(idx)}
-              className={`w-3 h-3 rounded-full transition-all ${
-                idx === currentSlide ? 'bg-white scale-125' : 'bg-white/40 hover:bg-white/70'
-              }`}
-            />
-          ))}
-        </div>
-
+        {/* Right Arrow */}
         <button
           onClick={nextSlide}
-          className="w-12 h-12 flex items-center justify-center rounded-full border border-white/30 hover:bg-white/10 text-white backdrop-blur-xl transition-all active:scale-90"
+          className="h-7 w-7 md:w-10 md:h-10 flex items-center justify-center rounded-full border border-white/30 bg-black/20 hover:bg-white/10 text-white backdrop-blur-md transition-all active:scale-90 pointer-events-auto"
         >
-          <FaChevronRight className="w-6 h-6" />
+          <FaChevronRight className="w-5 h-5 md:w-7 md:h-7" />
         </button>
+      </div>
+
+      {/*(Dots)*/}
+      <div className="absolute bottom-5 left-1/2 -translate-x-1/2 z-20 flex gap-3 px-4">
+        {slides.map((_, idx) => (<button key={idx} onClick={() => goToSlide(idx)} className={`w-2.5 h-2.5 rounded-full transition-all ${idx === currentSlide ? 'bg-white scale-125' : 'bg-white/40 hover:bg-white/70'}`} />
+        ))}
       </div>
 
       <div className="absolute bottom-0 left-0 right-0 h-0.5 bg-white/20 z-20">
-        <div
-          className="h-full bg-white transition-all duration-300 ease-linear"
-          style={{ width: `${((currentSlide + 1) / slides.length) * 100}%` }}
-        />
+        <div className="h-full bg-white transition-all duration-300 ease-linear" style={{ width: `${((currentSlide + 1) / slides.length) * 100}%` }} />
       </div>
 
-      <div className="absolute inset-0 z-10 pointer-events-none" onMouseEnter={() => setIsAutoPlaying(false)} onMouseLeave={() => setIsAutoPlaying(true)}
-      >
+      <div className="absolute inset-0 z-10 pointer-events-none" onMouseEnter={() => setIsAutoPlaying(false)} onMouseLeave={() => setIsAutoPlaying(true)} >
 
       </div>
     </div>
