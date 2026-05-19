@@ -31,7 +31,7 @@ const IdeasFilter = ({ categories }) => {
 
     return (
 
-        <div className="flex flex-col md:flex-row items-center justify-between gap-4 mb-10">
+        <div className="flex flex-col md:flex-row items-center justify-between gap-4 mb-10 px-2">
 
             <form onSubmit={handleSearch} className="w-full md:w-[70%]">
                 <div className="flex gap-3">

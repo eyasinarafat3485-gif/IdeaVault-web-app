@@ -73,7 +73,7 @@ export default function PopularCategories() {
           <h2 className="text-3xl md:text-4xl font-bold text-slate-900 dark:text-white mb-3 tracking-tight">
             Popular Categories
           </h2>
-          <p className="text-slate-500 dark:text-slate-400 text-sm md:text-base">Explore startup concepts across various industries.
+          <p className="text-gray-600 dark:text-gray-400 mt-4 text-lg ">Explore startup concepts across various industries.
           </p>
         </motion.div>
 

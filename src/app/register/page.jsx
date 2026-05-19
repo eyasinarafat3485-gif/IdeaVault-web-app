@@ -7,28 +7,35 @@ import { FcGoogle } from "react-icons/fc";
 import { toast } from "react-toastify";
 
 const RegisterPage = () => {
-    const onSubmit = async(e) => {
+    const onSubmit = async (e) => {
         e.preventDefault();
 
         const formData = new FormData(e.currentTarget)
         const user = Object.fromEntries(formData.entries())
         console.log(user);
 
-        const {data, error} = await authClient.signUp.email({
-            email : user.email,
+        const { data, error } = await authClient.signUp.email({
+            email: user.email,
             password: user.password,
             name: user.name,
             image: user.image
         })
-        console.log({data, error});
-        if(data){
+        console.log({ data, error });
+        if (data) {
             toast.success("Succesfully register done"),
-            redirect('/login')
-            
+                redirect('/login')
+
         }
-        if(error){
+        if (error) {
             toast.error(error.message)
         }
+    }
+
+    const handleSignInWithGoogle = async() => {
+        await authClient.signIn.social({
+            provider: "google"
+        })
+        toast.success("Successfully login with google")
     }
 
     return (
@@ -88,11 +95,11 @@ const RegisterPage = () => {
                         </Button>
 
                     </div>
-                    <p className='my-2 text-center'>Already have an account? <Link href={'/login'} className='text-blue-600 font-medium'>Login</Link></p>
+                    <p className='my-2 text-center'>Already have an account? <Link href={'/login'} className='text-blue-600 text-xl font-medium'>Login</Link></p>
 
                     <div className='text-center'>
                         <p className='font-bold'>Or,</p>
-                        <Button variant='outline' className='w-full rounded-md mt-3'><FcGoogle /> Login with Google</Button>
+                        <Button onClick={handleSignInWithGoogle} variant='outline' className='w-full rounded-md mt-3'><FcGoogle /> Login with Google</Button>
                     </div>
                 </Form>
             </Card>

@@ -32,8 +32,9 @@ const LoginPage = () => {
 
     const handleSignInWithGoogle = async () => {
         await authClient.signIn.social({
-            provider: "google"
+            provider: "google",
         })
+        toast.success("Successfully login with google")
     }
     
 
@@ -83,11 +84,11 @@ const LoginPage = () => {
                         </Button>
 
                     </div>
-                    <p className='my-2 text-center'>Don't have an account? <Link href={'/register'} className='text-blue-600 font-medium'>Register</Link></p>
+                    <p className='my-2 text-center'>Don't have an account? <Link href={'/register'} className='text-blue-600 text-xl font-medium'>Register</Link></p>
 
                     <div className='text-center'>
                         <p className='font-bold'>Or,</p>
-                        <Button variant='outline' className='w-full rounded-md mt-3'><FcGoogle /> Login with Google</Button>
+                        <Button onClick={handleSignInWithGoogle} variant='outline' className='w-full rounded-md mt-3'><FcGoogle /> Login with Google</Button>
                     </div>
                 </Form>
             </Card>
