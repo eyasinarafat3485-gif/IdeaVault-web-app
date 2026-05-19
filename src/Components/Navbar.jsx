@@ -71,7 +71,7 @@ const Navbar = () => {
                 <ul className='hidden lg:flex items-center gap-8'>
                     {navLinks.map((link) => (
                         <li key={link.href}>
-                            <Link href={link.href} className={`font-semibold transition-colors hover:text-indigo-600 ${pathname === link.href ? 'text-indigo-600' : 'text-gray-600 dark:text-gray-300'}`}>
+                            <Link href={link.href} className={`font-semibold transition-colors ${pathname === link.href ? 'text-indigo-600' : 'text-gray-600 dark:text-gray-300'}`}>
                                 {link.name}
                             </Link>
                         </li>

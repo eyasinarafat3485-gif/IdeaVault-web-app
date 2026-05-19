@@ -48,7 +48,7 @@ const LoginPage = () => {
       <div className='w-[80%] md:w-[40%] mx-auto my-10'>
             <Card className='border rounded-none space-y-5 my-3'>
                 <div className='text-center'>
-                    <h1 className='text-center text-3xl font-semibold'>Login </h1>
+                    <h1 className='text-center text-3xl font-semibold'> Login </h1>
                     <p>Share your thinking with IdeaValut</p>
                 </div>
                 <Form onSubmit={onSubmit} className="flex flex-col gap-4" >
