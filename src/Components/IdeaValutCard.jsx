@@ -47,7 +47,7 @@ const IdeaValutCard = ({ idea}) => {
                     <h2 className='text-lg font-bold'>{shortDescription}</h2>
                 </div>
                 <div className='flex gap-3 items-center justify-between px-3'>
-                    <p className='text-gray-600'><span className='font-semibold text-blue-600'>Tags:</span> {tags}</p>
+                    <p className='text-gray-600 dark:text-white/55'><span className='font-semibold text-blue-600'>Tags:</span> {tags}</p>
                 </div>
             </div>
 
