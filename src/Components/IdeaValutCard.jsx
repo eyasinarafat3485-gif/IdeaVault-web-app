@@ -54,6 +54,7 @@ const IdeaValutCard = ({ idea}) => {
             <Button className='ml-3 my-3 rounded-md w-[50%] mx-auto flex items-center gap-2'>
                 <FaExternalLinkAlt /> Add Idea
             </Button>
+            
             {/* <Link href={`/destinations/${_id}`}></Link> */}
         </div>
           </div>
