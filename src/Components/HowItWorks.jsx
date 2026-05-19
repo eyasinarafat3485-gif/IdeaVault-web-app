@@ -36,7 +36,7 @@ const steps = [
 export default function HowItWorks() {
     const [activeStep, setActiveStep] = useState(0);
     return (
-        <section className="pt-15 bg-white dark:bg-gray-950 w-full md:w-[90%] mx-auto">
+        <section className="pt-15 bg-white dark:bg-gray-900 w-full md:w-[90%] mx-auto">
             <div className="max-w-7xl mx-auto px-8 md:px-0">
                 <div className="text-center mb-16">
                     <h2 className="text-4xl font-bold tracking-tight">How It Works</h2>
@@ -50,7 +50,7 @@ export default function HowItWorks() {
                     <div className="hidden md:block absolute top-12 left-[15%] right-[15%] h-0.5 bg-gradient-to-r from-violet-400 via-blue-400 to-emerald-400" />
 
                     {steps.map((step, index) => (
-                        <div key={step.id} onClick={() => setActiveStep(index)} className={`group relative bg-white dark:bg-gray-900 p-8 rounded-3xl border transition-all cursor-pointer hover:-translate-y-2 ${activeStep === index ? 'border-violet-600 shadow-xl shadow-violet-100 dark:shadow-none scale-105' : 'border-gray-300 dark:border-gray-800 hover:border-gray-200'}`} >
+                        <div key={step.id} onClick={() => setActiveStep(index)} className={`group relative bg-white dark:bg-slate-700 p-8 rounded-3xl border transition-all cursor-pointer hover:-translate-y-2 ${activeStep === index ? 'border-violet-600 shadow-xl shadow-violet-100 dark:shadow-none scale-105' : 'border-gray-300 dark:border-gray-800 hover:border-gray-200'}`} >
                             <div className={`w-16 h-16 flex items-center justify-center rounded-2xl mb-6 transition-colors
                 ${activeStep === index ? `bg-${step.color}-100 text-${step.color}-600` : 'bg-gray-100 dark:bg-gray-800 text-gray-600'}`}>
                                 {step.icon}
@@ -61,7 +61,7 @@ export default function HowItWorks() {
                                 {step.desc}
                             </p>
 
-                            <div className="absolute -top-3 -right-3 bg-white dark:bg-gray-900 text-xs font-bold w-7 h-7 rounded-full flex items-center justify-center border border-gray-200 dark:border-gray-700">
+                            <div className="absolute -top-3 -right-3 bg-white dark:bg-slate-500 text-xs font-bold w-7 h-7 rounded-full flex items-center justify-center border border-gray-200 dark:border-gray-700">
                                 {step.id}
                             </div>
                         </div>

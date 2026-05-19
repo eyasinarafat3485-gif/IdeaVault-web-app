@@ -109,7 +109,7 @@ const AddIdeaPage = () => {
                     </div>
 
                     {/* Estimated Budget (optional) */}
-                    <TextField name="targetAudience" isRequired>
+                    <TextField name="estimatedBudget" isRequired>
                         <Label>Estimated Budget (optional)</Label>
                         <Input type="number" placeholder="1299" className="rounded-2xl" />
                         <FieldError />

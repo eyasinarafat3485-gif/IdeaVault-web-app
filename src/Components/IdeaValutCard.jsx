@@ -8,7 +8,7 @@ import { FaExternalLinkAlt } from 'react-icons/fa';
 const IdeaValutCard = ({ idea}) => {
 
     
-    const { ideaTitle, shortDescription, category, tags, imageUrl } = idea;
+    const {_id, ideaTitle, shortDescription, category, tags, imageUrl } = idea;
     const categoryStyles = {
         'ai': 'bg-red-200 text-red-700 border border-red-200',
         'AI': 'bg-red-200 text-red-700 border border-red-200',
@@ -51,10 +51,7 @@ const IdeaValutCard = ({ idea}) => {
                 </div>
             </div>
 
-            <Button className='ml-3 my-3 rounded-md w-[50%] mx-auto flex items-center gap-2'>
-                <FaExternalLinkAlt /> Add Idea
-            </Button>
-            
+            <Link href={`ideas/${_id}`}><Button className='ml-3 my-3 rounded-md w-[50%] mx-auto flex items-center gap-2'><FaExternalLinkAlt /> View Idea</Button></Link>
             {/* <Link href={`/destinations/${_id}`}></Link> */}
         </div>
           </div>

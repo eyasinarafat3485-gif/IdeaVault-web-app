@@ -36,7 +36,7 @@ const IdeasPage = async ({ searchParams }) => {
     });
 
     return (
-        <section className="pt-10 md:pt-15 w-full md:w-[90%] mx-auto bg-white dark:bg-slate-950 overflow-hidden min-h-screen">
+        <section className="pt-10 md:pt-15 w-full md:w-[90%] mx-auto bg-white dark:bg-slate-900 overflow-hidden min-h-screen">
 
             <div className="max-w-7xl mx-auto px-5 md:px-0">
                 <div className="mb-8">
