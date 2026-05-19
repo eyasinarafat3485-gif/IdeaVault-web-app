@@ -6,9 +6,13 @@ import { Button, Description, FieldError, Form, Input, Label, TextField } from "
 import Link from 'next/link';
 import { redirect } from 'next/navigation';
 import { FcGoogle } from 'react-icons/fc';
-import { toast } from 'react-toastify';
+import { toast } from 'react-toastify';import { useSearchParams, useRouter } from "next/navigation";
 
 const LoginPage = () => {
+     const searchParams = useSearchParams();
+  const router = useRouter();
+
+  const callbackUrl = searchParams.get("callbackUrl") || "/";
 
     const onSubmit = async (e) => {
         e.preventDefault();
@@ -23,7 +27,7 @@ const LoginPage = () => {
         })
         if (data) {
             toast.success("Succesfully login done"),
-            redirect('/')
+            window.location.href = callbackUrl;
         }
         if (error) {
             toast.error(error.message)
@@ -31,8 +35,10 @@ const LoginPage = () => {
     }
 
     const handleSignInWithGoogle = async () => {
+        const fullCallbackUrl = `${window.location.origin}${callbackUrl}`;
         await authClient.signIn.social({
             provider: "google",
+            callbackURL: fullCallbackUrl,
         })
         toast.success("Successfully login with google")
     }
