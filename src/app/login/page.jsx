@@ -4,15 +4,15 @@ import { authClient } from '@/lib/auth-client';
 import { Card } from '@heroui/react';
 import { Button, Description, FieldError, Form, Input, Label, TextField } from "@heroui/react";
 import Link from 'next/link';
-import { redirect } from 'next/navigation';
 import { FcGoogle } from 'react-icons/fc';
-import { toast } from 'react-toastify';import { useSearchParams, useRouter } from "next/navigation";
+import { toast } from 'react-toastify'; 
+import { useSearchParams, useRouter } from "next/navigation";
 
 const LoginPage = () => {
-     const searchParams = useSearchParams();
-  const router = useRouter();
+    const searchParams = useSearchParams();
+    const router = useRouter();
 
-  const callbackUrl = searchParams.get("callbackUrl") || "/";
+    const callbackUrl = searchParams.get("callbackUrl") || "/";
 
     const onSubmit = async (e) => {
         e.preventDefault();
@@ -27,7 +27,7 @@ const LoginPage = () => {
         })
         if (data) {
             toast.success("Succesfully login done"),
-            window.location.href = callbackUrl;
+                window.location.href = callbackUrl;
         }
         if (error) {
             toast.error(error.message)
@@ -42,10 +42,10 @@ const LoginPage = () => {
         })
         toast.success("Successfully login with google")
     }
-    
+
 
     return (
-      <div className='w-[80%] md:w-[40%] mx-auto my-10'>
+        <div className='w-[80%] md:w-[40%] mx-auto my-10'>
             <Card className='border rounded-none space-y-5 my-3'>
                 <div className='text-center'>
                     <h1 className='text-center text-3xl font-semibold'> Login </h1>

@@ -2,11 +2,16 @@
 import { authClient } from "@/lib/auth-client";
 import { Button, Card, Description, FieldError, Form, Input, Label, TextField } from "@heroui/react";
 import Link from "next/link";
-import { redirect } from "next/navigation";
 import { FcGoogle } from "react-icons/fc";
 import { toast } from "react-toastify";
+import { useSearchParams, useRouter } from "next/navigation";
 
 const RegisterPage = () => {
+    const searchParams = useSearchParams();
+    const router = useRouter();
+
+    const callbackUrl = searchParams.get("callbackUrl") || "/";
+
     const onSubmit = async (e) => {
         e.preventDefault();
 
@@ -23,7 +28,8 @@ const RegisterPage = () => {
         console.log({ data, error });
         if (data) {
             toast.success("Succesfully register done"),
-                redirect('/login')
+                window.location.href = callbackUrl;
+            // redirect('/login')
 
         }
         if (error) {
@@ -31,9 +37,11 @@ const RegisterPage = () => {
         }
     }
 
-    const handleSignInWithGoogle = async() => {
+    const handleSignInWithGoogle = async () => {
+        const fullCallbackUrl = `${window.location.origin}${callbackUrl}`;
         await authClient.signIn.social({
-            provider: "google"
+            provider: "google",
+            callbackURL: fullCallbackUrl,
         })
         toast.success("Successfully login with google")
     }
