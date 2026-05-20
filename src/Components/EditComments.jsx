@@ -4,7 +4,7 @@ import { Button, FieldError, Label, Modal, Surface, TextArea, TextField } from "
 import { toast } from 'react-toastify';
 
 const EditComments = ({ c, onEditSuccess }) => {
-    const { comment: oldComment, _id } = c; 
+    const { comment: oldComment, _id } = c;
 
     const onSubmit = async (e) => {
         e.preventDefault();

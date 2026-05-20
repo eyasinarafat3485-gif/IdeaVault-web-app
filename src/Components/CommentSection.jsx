@@ -3,7 +3,8 @@ import React, { useEffect, useState } from 'react';
 import { authClient } from '@/lib/auth-client';
 import { Button, Card, FieldError, Form, Input, Label, TextField } from '@heroui/react';
 import { toast } from 'react-toastify';
-import EditComments from './EditComments'; 
+import EditComments from './EditComments';
+import DeleteComments from './DeleteComments';
 
 const CommentSection = ({ idea }) => {
   const { data: session } = authClient.useSession();
@@ -38,7 +39,10 @@ const CommentSection = ({ idea }) => {
         c._id === commentId ? { ...c, comment: updatedText } : c
       )
     );
-    
+
+  };
+  const handleDeleteCommentSuccess = (commentId) => {
+    setComments((prevComments) => prevComments.filter((c) => c._id !== commentId));
   };
 
   const handleAddComment = async (e) => {
@@ -107,7 +111,7 @@ const CommentSection = ({ idea }) => {
 
               <img src={c?.userImage} alt={c?.userName} className='h-12 w-12 rounded-full' />
 
-              <div className="flex-1"> 
+              <div className="flex-1">
                 <h3 className="font-semibold text-lg">{c.userName}</h3>
                 <p className="text-gray-600 dark:text-gray-300 mt-1">{c.comment}</p>
                 <span className="text-xs text-gray-400 mt-2 block">
@@ -117,8 +121,10 @@ const CommentSection = ({ idea }) => {
                   })}
                 </span>
               </div>
-              <div>
+              <div className='flex gap-3'>
                 <EditComments c={c} id={c._id} onEditSuccess={handleEditCommentSuccess} />
+
+                <DeleteComments c={c} id={c._id} onDeleteSuccess={handleDeleteCommentSuccess} />
               </div>
             </div>
           ))
