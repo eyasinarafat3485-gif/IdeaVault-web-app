@@ -36,7 +36,7 @@ const EditComments = ({ c, onEditSuccess }) => {
     return (
         <Modal>
             <div>
-                <Button variant='outline' className='border bg-blue-500 rounded-md mb-3' ><FaEdit />Edit</Button>
+                <Button variant='outline' className='border bg-blue-500 rounded-md mb-3 text-white' ><FaEdit />Edit</Button>
             </div>
             <Modal.Backdrop>
                 <Modal.Container placement="auto">

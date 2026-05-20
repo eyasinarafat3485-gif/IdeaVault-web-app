@@ -48,7 +48,7 @@ const IdeaDetailsPage = async ({ params }) => {
                 </div>
 
             </div>
-            <div>
+            <div className='mt-10'>
                 <CommentSection idea={idea}/>
             </div>
         </div>
