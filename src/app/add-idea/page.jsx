@@ -20,7 +20,7 @@ const AddIdeaPage = () => {
             body: JSON.stringify(idea)
         })
         const data = await res.json()
-        toast.success("Your idea info is successfully done")
+        toast.success("Your idea info is successfully added")
         console.log(data);
     }
     return (
@@ -83,10 +83,6 @@ const AddIdeaPage = () => {
                                         <ListBox.ItemIndicator />
                                     </ListBox.Item>
 
-                                    <ListBox.Item id="Cultural" textValue="Cultural">
-                                        Cultural
-                                        <ListBox.ItemIndicator />
-                                    </ListBox.Item>
                                 </ListBox>
                             </Select.Popover>
                         </Select>
