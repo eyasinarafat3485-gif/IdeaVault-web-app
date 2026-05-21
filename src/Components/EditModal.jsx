@@ -50,7 +50,7 @@ const EditModal = ({ idea }) => {
             </div>
             <Modal.Backdrop>
                 <Modal.Container placement="auto">
-                    <Modal.Dialog className="sm:max-w-xl">
+                    <Modal.Dialog className="sm:max-w-xl dark:bg-slate-900">
                         <Modal.CloseTrigger />
                         <Modal.Header>
                             <Modal.Icon className="bg-accent-soft text-accent-soft-foreground dark:bg-slate-900 ">
