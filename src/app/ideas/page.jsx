@@ -1,11 +1,21 @@
 import IdeaValutCard from '@/Components/IdeaValutCard';
 import IdeasFilter from '@/Components/IdeasFilter';
+import { auth } from '@/lib/auth';
+import { headers } from 'next/headers';
 import React from 'react';
 
 const IdeasPage = async ({ searchParams }) => {
     const params = await searchParams;
 
+    const {token} = await auth.api.getToken({
+            headers : await headers()
+        })
+        console.log(token);
     const res = await fetch(`http://localhost:5000/idea`, {
+            headers: {
+                authorization: `Bearer ${token}`
+            }
+        }, {
         cache: 'no-store',
     });
 

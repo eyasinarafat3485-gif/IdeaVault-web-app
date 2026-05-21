@@ -1,32 +1,27 @@
 'use client'
-import { authClient } from '@/lib/auth-client';
-// import { auth } from '@/lib/auth';
 import { AlertDialog, Button } from '@heroui/react';
-// import { headers } from 'next/headers';
 import { FaTrash } from 'react-icons/fa';
+import { authClient } from '@/lib/auth-client';
 import { toast } from 'react-toastify';
+import { useRouter } from 'next/navigation';
 
-const DeleteComments = ({ c, onDeleteSuccess }) => {
-    const { comment, _id } = c;
-
+const DeleteDialog = ({ idea }) => {
+    const router = useRouter();
+    const { _id } = idea;
     const handledelete = async () => {
         const { data: tokenData } = await authClient.token()
         console.log(tokenData);
-
-        const res = await fetch(`http://localhost:5000/comments/${_id}`, {
+        const res = await fetch(`http://localhost:5000/my-idea/${_id}`, {
             method: "DELETE",
             headers: {
                 "Content-Type": "application/json",
                 authorization: `Bearer ${tokenData?.token}`
-            }
-
+            },
         });
-        if (res.ok) {
-            const data = await res.json();
-            console.log(data);
-            toast.warning("Your comments is deleted!")
-            onDeleteSuccess(_id);
-        }
+        const data = await res.json();
+        console.log(data);
+        router.refresh();
+        toast.warning('Your ideas is deleted')
     }
     return (
         <AlertDialog>
@@ -37,10 +32,12 @@ const DeleteComments = ({ c, onDeleteSuccess }) => {
                         <AlertDialog.CloseTrigger />
                         <AlertDialog.Header>
                             <AlertDialog.Icon status="danger" />
-                            <AlertDialog.Heading>Delete comment permanently?</AlertDialog.Heading>
+                            <AlertDialog.Heading>Delete destination permanently?</AlertDialog.Heading>
                         </AlertDialog.Header>
                         <AlertDialog.Body>
-                            <p> This will permanently delete {comment} and all of its data. This action cannot be undone.
+                            <p>
+                                This will permanently delete  and all of its
+                                data. This action cannot be undone.
                             </p>
                         </AlertDialog.Body>
                         <AlertDialog.Footer>
@@ -59,4 +56,4 @@ const DeleteComments = ({ c, onDeleteSuccess }) => {
     );
 };
 
-export default DeleteComments;
+export default DeleteDialog;

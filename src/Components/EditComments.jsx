@@ -2,6 +2,7 @@ import React from 'react';
 import { FaEdit } from 'react-icons/fa';
 import { Button, FieldError, Label, Modal, Surface, TextArea, TextField } from "@heroui/react";
 import { toast } from 'react-toastify';
+import { authClient } from '@/lib/auth-client';
 
 const EditComments = ({ c, onEditSuccess }) => {
     const { comment: oldComment, _id } = c;
@@ -12,10 +13,13 @@ const EditComments = ({ c, onEditSuccess }) => {
         const commentData = Object.fromEntries(formData.entries());
 
         try {
+            const { data: tokenData } = await authClient.token()
+            console.log(tokenData);
             const res = await fetch(`http://localhost:5000/comments/${_id}`, {
                 method: "PATCH",
                 headers: {
                     "Content-Type": "application/json",
+                    authorization: `Bearer ${tokenData?.token}`
                 },
                 body: JSON.stringify(commentData)
             });

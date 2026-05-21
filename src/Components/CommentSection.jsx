@@ -15,9 +15,17 @@ const CommentSection = ({ idea }) => {
   const [loading, setLoading] = useState(false);
 
   const fetchComments = async () => {
+
     try {
+      const { data: tokenData } = await authClient.token()
+      console.log(tokenData);
       const res = await fetch(
-        `http://localhost:5000/api/comments?ideaId=${idea._id}`
+        `http://localhost:5000/api/comments?ideaId=${idea._id}`, {
+        headers: {
+          'Content-Type': 'application/json',
+          authorization: `Bearer ${tokenData?.token}`
+        },
+      }
       );
       if (!res.ok) throw new Error("Failed to fetch");
       const data = await res.json();
@@ -60,9 +68,15 @@ const CommentSection = ({ idea }) => {
     setLoading(true);
 
     try {
+      const { data: tokenData } = await authClient.token()
+      console.log(tokenData);
       const res = await fetch('http://localhost:5000/api/comments', {
         method: 'POST',
-        headers: { 'Content-Type': 'application/json' },
+        headers: {
+          'Content-Type': 'application/json',
+          authorization: `Bearer ${tokenData?.token}`
+        },
+
         body: JSON.stringify(commentData),
       });
 

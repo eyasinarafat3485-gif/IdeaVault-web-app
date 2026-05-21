@@ -1,24 +1,35 @@
 import CommentSection from '@/Components/CommentSection';
+import { auth } from '@/lib/auth';
+import { headers } from 'next/headers';
 import Image from 'next/image';
 import React from 'react';
 
 const IdeaDetailsPage = async ({ params }) => {
     const { id } = await params;
     console.log(id);
+    const {token} = await auth.api.getToken({
+        headers : await headers()
+    })
+    console.log(token);
 
-    const res = await fetch(`http://localhost:5000/idea/${id}`)
+    const res = await fetch(`http://localhost:5000/idea/${id}`, {
+        headers: {
+            authorization: `Bearer ${token}`
+        }
+    }
+    );
     const idea = await res.json()
-    console.log(idea);
+    // console.log(idea);
 
     const { _id, ideaTitle, shortDescription, category, tags, imageUrl, targetAudience, problemStatement, proposedSolution } = idea;
     return (
         <div className='pt-10 md:pt-15 w-full md:w-[90%] mx-auto bg-white dark:bg-slate-900 overflow-hidden '>
 
             {/* top 2 btn */}
-            <div className='flex justify-center gap-4'>
-                {/* <EditModal destination={destination} />
-                <DeleteDialog destination={destination} /> */}
-            </div>
+            {/* <div className='flex justify-center gap-4'>
+                <EditModal destination={destination} />
+                <DeleteDialog destination={destination} />
+            </div> */}
 
             <div className='flex flex-col lg:flex-row w-12/12 lg:w-12/12  mx-auto my-3 bg-white dark:bg-slate-700 shadow-xl rounded-3xl overflow-hidden border border-gray-100 dark:border-gray-800'>
                 <div className='lg:w-6/12 w-full group overflow-hidden'>
@@ -49,7 +60,7 @@ const IdeaDetailsPage = async ({ params }) => {
 
             </div>
             <div className='mt-10'>
-                <CommentSection idea={idea}/>
+                <CommentSection idea={idea} />
             </div>
         </div>
     );

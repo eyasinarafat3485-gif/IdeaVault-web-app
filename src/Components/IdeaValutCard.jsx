@@ -1,5 +1,5 @@
 import { Button } from '@heroui/react';
-import { div } from 'framer-motion/client';
+// import { div } from 'framer-motion/client';
 // import Image from 'next/image';
 import Link from 'next/link';
 import React from 'react';
@@ -52,7 +52,6 @@ const IdeaValutCard = ({ idea}) => {
             </div>
 
             <Link href={`ideas/${_id}`}><Button className='ml-3 my-3 rounded-md w-[50%] mx-auto flex items-center gap-2'><FaExternalLinkAlt /> View Idea</Button></Link>
-            {/* <Link href={`/destinations/${_id}`}></Link> */}
         </div>
           </div>
     );
