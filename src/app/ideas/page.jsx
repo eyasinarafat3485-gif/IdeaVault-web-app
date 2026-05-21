@@ -5,7 +5,7 @@ import React from 'react';
 const IdeasPage = async ({ searchParams }) => {
     const params = await searchParams;
 
-        console.log(token);
+        // console.log(token);
     const res = await fetch(`${process.env.NEXT_PUBLIC_SERVER_URL}/idea`,{
         cache: 'no-store',
     });
