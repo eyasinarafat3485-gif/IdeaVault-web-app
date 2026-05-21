@@ -56,13 +56,13 @@ const EditModal = ({ idea }) => {
                             <Modal.Icon className="bg-accent-soft text-accent-soft-foreground">
                                 <FaEdit className="size-5" />
                             </Modal.Icon>
-                            <Modal.Heading>Edit Comment</Modal.Heading>
+                            <Modal.Heading>Edit idea</Modal.Heading>
                         </Modal.Header>
                         <Modal.Body className="p-6">
                             <Surface variant="default">
 
                                 <form onSubmit={onSubmit}
-                                    className="p-10 space-y-8 mx-auto border border-gray-300 rounded-xl"
+                                    className="p-10 space-y-8 mx-auto border border-gray-300 dark:bg-slate-900 rounded-xl"
                                 >
 
                                     <div className="grid grid-cols-1 md:grid-cols-2 gap-8">
