@@ -28,7 +28,7 @@ const EditModal = ({ idea }) => {
 
         const {data:tokenData} = await authClient.token();
         console.log(tokenData);
-        const res = await fetch(`http://localhost:5000/my-idea/${_id}`, {
+        const res = await fetch(`${process.env.NEXT_PUBLIC_SERVER_URL}/my-idea/${_id}`, {
             method: "PATCH",
             headers: {
                 "Content-Type": "application/json",

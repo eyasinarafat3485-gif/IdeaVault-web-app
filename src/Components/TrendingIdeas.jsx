@@ -3,7 +3,7 @@ import Link from "next/link";
 import IdeaValutCard from "./IdeaValutCard";
 
 const TrendingIdeas = async () => {
-    const res = await fetch(`http://localhost:5000/trendingIdeas`)
+    const res = await fetch(`${process.env.NEXT_PUBLIC_SERVER_URL}/trendingIdeas`)
     const ideas = await res.json()
     console.log(ideas);
     return (

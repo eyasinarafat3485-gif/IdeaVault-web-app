@@ -29,8 +29,9 @@ const MyIdeasPage = async () => {
         });
 
     console.log(token);
+
     const res = await fetch(
-        `http://localhost:5000/my-ideas/${user?.id}`,
+        `${process.env.NEXT_PUBLIC_SERVER_URL}/my-ideas/${user?.id}`,
         {
             headers: {
                 authorization: `Bearer ${token}`,

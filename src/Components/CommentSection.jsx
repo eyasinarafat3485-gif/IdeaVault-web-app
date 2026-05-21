@@ -20,7 +20,7 @@ const CommentSection = ({ idea }) => {
       const { data: tokenData } = await authClient.token()
       console.log(tokenData);
       const res = await fetch(
-        `http://localhost:5000/api/comments?ideaId=${idea._id}`, {
+        `${process.env.NEXT_PUBLIC_SERVER_URL}/api/comments?ideaId=${idea._id}`, {
         headers: {
           'Content-Type': 'application/json',
           authorization: `Bearer ${tokenData?.token}`
@@ -70,7 +70,7 @@ const CommentSection = ({ idea }) => {
     try {
       const { data: tokenData } = await authClient.token()
       console.log(tokenData);
-      const res = await fetch('http://localhost:5000/api/comments', {
+      const res = await fetch('${process.env.NEXT_PUBLIC_SERVER_URL}/api/comments', {
         method: 'POST',
         headers: {
           'Content-Type': 'application/json',
