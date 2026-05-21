@@ -70,7 +70,7 @@ const CommentSection = ({ idea }) => {
     try {
       const { data: tokenData } = await authClient.token()
       console.log(tokenData);
-      const res = await fetch('${process.env.NEXT_PUBLIC_SERVER_URL}/api/comments', {
+      const res = await fetch(`${process.env.NEXT_PUBLIC_SERVER_URL}/api/comments`, {
         method: 'POST',
         headers: {
           'Content-Type': 'application/json',
