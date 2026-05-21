@@ -37,8 +37,7 @@ const IdeasFilter = ({ categories }) => {
                 <div className="flex gap-3">
 
                     <input type="text" name="search" placeholder="Search by idea title..." defaultValue={
-                        searchParams.get('search') || ''
-                    }
+                        searchParams.get('search') || ''}
                         className=" w-full px-5 py-3 rounded-2xl border border-slate-300 dark:border-slate-700 bg-white dark:bg-slate-900 text-slate-900 dark:text-white outline-none focus:ring-2 focus:ring-indigo-500 transition-all duration-300" />
 
                     <button type="submit" className=" px-6 py-3 rounded-2xl bg-indigo-600 hover:bg-indigo-700 text-white font-semibold transition-all duration-300 cursor-pointer">
@@ -50,12 +49,10 @@ const IdeasFilter = ({ categories }) => {
             <div className="w-full md:w-[30%]">
 
                 <select onChange={handleCategory} defaultValue={
-                    searchParams.get('category') || 'All'
-                }
+                    searchParams.get('category') || 'All'}
                     className="w-full px-5 py-3 rounded-2xl border border-slate-300 dark:border-slate-700 bg-white dark:bg-slate-900 text-slate-900 dark:text-white outline-none focus:ring-2 focus:ring-indigo-500 transition-all duration-300 cursor-pointer">
 
                     {categories.map((cat, index) => (
-
                         <option key={index} value={cat} >
                             {cat}
                         </option>

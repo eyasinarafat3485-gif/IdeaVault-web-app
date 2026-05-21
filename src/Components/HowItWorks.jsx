@@ -40,13 +40,11 @@ export default function HowItWorks() {
             <div className="max-w-7xl mx-auto px-8 md:px-0">
                 <div className="text-center mb-16">
                     <h2 className="text-4xl font-bold tracking-tight">How It Works</h2>
-                    <p className="text-gray-600 dark:text-gray-400 mt-4 text-lg">
-                        From idea to successful startup in 4 simple steps
+                    <p className="text-gray-600 dark:text-gray-400 mt-4 text-lg">From idea to successful startup in 4 simple steps
                     </p>
                 </div>
 
                 <div className="grid md:grid-cols-4 gap-8 relative">
-                    {/* Connecting Line */}
                     <div className="hidden md:block absolute top-12 left-[15%] right-[15%] h-0.5 bg-gradient-to-r from-violet-400 via-blue-400 to-emerald-400" />
 
                     {steps.map((step, index) => (
@@ -57,9 +55,7 @@ export default function HowItWorks() {
                             </div>
 
                             <h3 className="text-2xl font-semibold mb-3">{step.title}</h3>
-                            <p className="text-gray-600 dark:text-gray-400 leading-relaxed">
-                                {step.desc}
-                            </p>
+                            <p className="text-gray-600 dark:text-gray-400 leading-relaxed"> {step.desc}</p>
 
                             <div className="absolute -top-3 -right-3 bg-white dark:bg-slate-500 text-xs font-bold w-7 h-7 rounded-full flex items-center justify-center border border-gray-200 dark:border-gray-700">
                                 {step.id}

@@ -1,8 +1,6 @@
 import React from 'react';
 import { auth } from '@/lib/auth';
 import { headers } from 'next/headers';
-import IdeaValutCard from '@/Components/IdeaValutCard';
-import { div } from 'framer-motion/client';
 import UserIdeaCard from '@/Components/UserIdeaCard';
 
 const MyIdeasPage = async () => {
@@ -52,7 +50,6 @@ const MyIdeasPage = async () => {
 
             <div className="max-w-7xl mx-auto px-5 md:px-0">
 
-                {/* HEADING */}
                 <div className="mb-8">
 
                     <h2 className="text-3xl md:text-4xl font-bold text-slate-900 dark:text-white tracking-tight">
@@ -64,7 +61,6 @@ const MyIdeasPage = async () => {
                     </p>
                 </div>
 
-                {/* IDEA LIST */}
                 <div className='my-5'>
 
                     {ideas?.length > 0 ? (

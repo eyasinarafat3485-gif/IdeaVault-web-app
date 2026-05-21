@@ -7,7 +7,7 @@ const TrendingIdeas = async () => {
     const ideas = await res.json()
     console.log(ideas);
     return (
-        <div className="pt-15 bg-white dark:bg-gray-900 w-full md:w-[90%] mx-auto">
+        <div className="bg-white dark:bg-gray-900 pt-10 md:pt-15 w-[90%] mx-auto">
             <div className="text-center mb-10">
                 <div>
                     <h2 className="text-4xl font-bold tracking-tight">Trending Ideas</h2>
@@ -16,13 +16,12 @@ const TrendingIdeas = async () => {
                     </p>
                 </div>
             </div>
-          
+
             <div className='mx-auto grid grid-cols-1 md:grid-cols-2  lg:grid-cols-3 gap-5 mb-10'>
                 {
                     ideas.map(idea => <IdeaValutCard key={idea._id} idea={idea}></IdeaValutCard>)
                 }
             </div>
-
             <div className="text-center">
                 <Link href={'/ideas'}><Button variant='outline' className='rounded-md w-50 text-xl py-3 border-2 border-blue-500 text-blue-500'>All Ideas</Button></Link>
             </div>

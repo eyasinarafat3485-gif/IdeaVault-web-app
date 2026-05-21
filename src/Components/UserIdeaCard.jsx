@@ -1,5 +1,4 @@
 import { Button } from '@heroui/react';
-// import { div } from 'framer-motion/client';
 import Link from 'next/link';
 import React from 'react';
 import { FaExternalLinkAlt } from 'react-icons/fa';
@@ -7,7 +6,6 @@ import DeleteDialog from './DeleteDialog';
 import EditModal from './EditModal';
 
 const UserIdeaCard = ({ idea }) => {
-
     const { _id, ideaTitle, shortDescription, category, tags, imageUrl } = idea;
     const categoryStyles = {
         'ai': 'bg-red-200 text-red-700 border border-red-200',
@@ -53,9 +51,9 @@ const UserIdeaCard = ({ idea }) => {
 
                 <Link href={`ideas/${_id}`}><Button className='mx-3 my-3 rounded-md w-[90%]  mx-auto flex items-center gap-2'><FaExternalLinkAlt /> View Idea</Button></Link>
                 <div className='flex justify-between gap-4 px-4 mb-3'>
-                    
-                    <EditModal idea={idea}/>
-                    <DeleteDialog idea={idea}/>
+
+                    <EditModal idea={idea} />
+                    <DeleteDialog idea={idea} />
                 </div>
             </div>
 

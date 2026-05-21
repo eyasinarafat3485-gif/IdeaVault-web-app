@@ -1,7 +1,7 @@
 'use client';
 
 import { authClient } from '@/lib/auth-client';
-import { Avatar, Button, Card } from '@heroui/react';
+import { Button, Card } from '@heroui/react';
 import Link from 'next/link';
 import React from 'react';
 import { FaEdit } from 'react-icons/fa';

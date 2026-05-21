@@ -56,7 +56,6 @@ const EditComments = ({ c, onEditSuccess }) => {
                             <Surface variant="default">
                                 <form onSubmit={onSubmit} className="p-6 space-y-8 ">
 
-                                    {/* Comment */}
                                     <div className="md:col-span-2">
                                         <TextField defaultValue={oldComment} name="comment" isRequired>
                                             <Label>Comment</Label>
@@ -65,14 +64,12 @@ const EditComments = ({ c, onEditSuccess }) => {
                                         </TextField>
                                     </div>
 
-                                    {/* Buttons */}
                                     <Modal.Footer>
                                         <Button type="submit" slot="close">Updated Comment</Button>
                                     </Modal.Footer>
                                 </form>
                             </Surface>
                         </Modal.Body>
-
                     </Modal.Dialog>
                 </Modal.Container>
             </Modal.Backdrop>

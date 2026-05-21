@@ -13,19 +13,19 @@ const footerLinks = [
   {
     title: 'Platform',
     links: [
-      { name: 'Ideas', path: '/' },
-      { name: 'Categories', path: '/' },
-      { name: 'Projects', path: '/' },
-      { name: 'Resources', path: '/' },
+      { name: 'Ideas', path: '' },
+      { name: 'Categories', path: '' },
+      { name: 'Projects', path: '' },
+      { name: 'Resources', path: '' },
     ],
   },
   {
     title: 'Company',
     links: [
-      { name: 'About', path: '/' },
-      { name: 'Contact', path: '/' },
-      { name: 'Privacy Policy', path: '/' },
-      { name: 'Terms & Conditions', path: '/' },
+      { name: 'About', path: '' },
+      { name: 'Contact', path: '' },
+      { name: 'Privacy Policy', path: '' },
+      { name: 'Terms & Conditions', path: '' },
     ],
   },
 ];
@@ -33,19 +33,19 @@ const footerLinks = [
 const socialLinks = [
   {
     icon: <FaFacebookF />,
-    path: '/',
+    path: '',
   },
   {
     icon: <FaGithub />,
-    path: '/',
+    path: '',
   },
   {
     icon: <FaLinkedinIn />,
-    path: '/',
+    path: '',
   },
   {
     icon: <FaTwitter />,
-    path: '/',
+    path: '',
   },
 ];
 
@@ -69,7 +69,6 @@ const Footer = () => {
               discover projects, and build amazing digital experiences.
             </p>
 
-            {/* Social */}
             <div className="flex items-center gap-4 mt-6">
               {socialLinks.map((social, index) => (
                 <Link key={index} href={social.path} target="_blank" className=" h-11 w-11 rounded-full border border-gray-300 dark:border-white/10 bg-gray-100 dark:bg-white/5 text-gray-700 dark:text-gray-300 flex items-center justify-center transition-all duration-300 hover:-translate-y-1 hover:border-orange-500 hover:text-orange-500 hover:shadow-lg hover:shadow-orange-500/20">
@@ -79,7 +78,6 @@ const Footer = () => {
             </div>
           </div>
 
-          {/* Footer Links */}
           {footerLinks.map((section, index) => (
             <div key={index}>
               <h3 className="text-lg font-bold text-black dark:text-white mb-5">
@@ -98,7 +96,6 @@ const Footer = () => {
             </div>
           ))}
 
-          {/* Contact Info */}
           <div>
             <h3 className="text-lg font-bold text-black dark:text-white mb-5">
               Contact

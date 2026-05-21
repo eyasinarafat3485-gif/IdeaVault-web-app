@@ -2,16 +2,8 @@
 
 import { authClient } from '@/lib/auth-client';
 import {
-    Button,
-    FieldError,
-    Input,
-    Select,
-    Label,
-    ListBox,
-    TextArea,
-    TextField
+    Button, FieldError, Input, Select, Label, ListBox, TextArea, TextField
 } from '@heroui/react';
-
 import React from 'react';
 import { toast } from 'react-toastify';
 
@@ -104,7 +96,6 @@ const AddIdeaPage = () => {
                         </TextField>
                     </div>
 
-                    {/* Short Description */}
                     <TextField name="shortDescription" isRequired>
                         <Label>Short Description</Label>
 
@@ -116,7 +107,6 @@ const AddIdeaPage = () => {
                         <FieldError />
                     </TextField>
 
-                    {/* Detailed Description */}
                     <TextField name="detailedDescription" isRequired>
                         <Label>Detailed Description</Label>
 
@@ -128,7 +118,6 @@ const AddIdeaPage = () => {
                         <FieldError />
                     </TextField>
 
-                    {/* Category */}
                     <div>
                         <Select
                             name="category"
@@ -184,7 +173,6 @@ const AddIdeaPage = () => {
                         </Select>
                     </div>
 
-                    {/* Tags */}
                     <TextField name="tags">
                         <Label>Tags (optional)</Label>
 
@@ -196,7 +184,6 @@ const AddIdeaPage = () => {
                         <FieldError />
                     </TextField>
 
-                    {/* Image URL */}
                     <div className="md:col-span-2">
                         <TextField name="imageUrl" isRequired>
                             <Label>Image URL</Label>
@@ -211,7 +198,6 @@ const AddIdeaPage = () => {
                         </TextField>
                     </div>
 
-                    {/* Estimated Budget */}
                     <TextField name="estimatedBudget">
                         <Label>Estimated Budget (optional)</Label>
 
@@ -224,7 +210,6 @@ const AddIdeaPage = () => {
                         <FieldError />
                     </TextField>
 
-                    {/* Target Audience */}
                     <TextField name="targetAudience" isRequired>
                         <Label>Target Audience</Label>
 
@@ -237,7 +222,6 @@ const AddIdeaPage = () => {
                         <FieldError />
                     </TextField>
 
-                    {/* Problem Statement */}
                     <div className="md:col-span-2">
                         <TextField name="problemStatement" isRequired>
                             <Label>Problem Statement</Label>
@@ -251,7 +235,6 @@ const AddIdeaPage = () => {
                         </TextField>
                     </div>
 
-                    {/* Proposed Solution */}
                     <div className="md:col-span-2">
                         <TextField name="proposedSolution" isRequired>
                             <Label>Proposed Solution</Label>
@@ -266,7 +249,6 @@ const AddIdeaPage = () => {
                     </div>
                 </div>
 
-                {/* Button */}
                 <Button
                     type="submit"
                     variant="outline"

@@ -59,7 +59,6 @@ const Navbar = () => {
         <nav className='sticky z-50 w-full bg-white/80 dark:bg-slate-900/80 backdrop-blur-md border-b border-gray-100 dark:border-slate-800 transition-colors duration-300'>
             <div className='max-w-7xl mx-auto flex justify-between items-center h-20 px-5 lg:px-14'>
 
-                {/* Logo */}
                 <Link href="/" className='flex gap-2 items-center hover:opacity-90 transition-opacity'>
                     <Image src={logo} width={50} height={50} alt='logo' className='w-10 h-10 md:w-12 md:h-12 object-contain' />
                     <p className='font-bold text-2xl md:text-3xl tracking-tighter text-slate-900 dark:text-white'>
@@ -67,7 +66,6 @@ const Navbar = () => {
                     </p>
                 </Link>
 
-                {/* Desktop Nav */}
                 <ul className='hidden lg:flex items-center gap-8'>
                     {navLinks.map((link) => (
                         <li key={link.href}>
@@ -78,22 +76,15 @@ const Navbar = () => {
                     ))}
                 </ul>
 
-                {/* Right Side */}
                 <div className='flex items-center gap-3 md:gap-4'>
-
-                    {/* Theme Toggle */}
-                    <button
-                        onClick={() => setTheme(theme === 'dark' ? 'light' : 'dark')}
-                        className="p-2.5 rounded-xl cursor-pointer bg-gray-100 dark:bg-slate-800 text-gray-700 dark:text-yellow-400 hover:ring-2 ring-indigo-400 transition-all shadow-sm flex items-center justify-center"
-                        aria-label="Toggle Theme">
+                    <button onClick={() => setTheme(theme === 'dark' ? 'light' : 'dark')}
+                        className="p-2.5 rounded-xl cursor-pointer bg-gray-100 dark:bg-slate-800 text-gray-700 dark:text-yellow-400 hover:ring-2 ring-indigo-400 transition-all shadow-sm flex items-center justify-center" aria-label="Toggle Theme">
                         {mounted && (theme === 'dark' ? <Sun size={22} /> : <Moon size={22} />)}
                         {!mounted && <div className="w-[22px] h-[22px]" />}
                     </button>
 
-                    {/* Desktop Auth Section */}
                     <div className='hidden md:flex items-center'>
                         {isLoading ? (
-
                             <Spinner />
                         ) : user ? (
                             <div className='relative'>
@@ -111,31 +102,21 @@ const Navbar = () => {
                                             animate={{ opacity: 1, y: 0 }}
                                             exit={{ opacity: 0, y: 10 }}
                                             transition={{ duration: 0.2 }}
-                                            className='absolute right-0 mt-3 w-40 rounded-xl border border-gray-200 dark:border-slate-700 bg-white dark:bg-slate-900 shadow-xl overflow-hidden z-50'
-                                        >
-                                            <Link
-                                                href="/profile"
-                                                onClick={() => setProfileOpen(false)}
-                                                className='block px-4 py-2.5 text-sm font-medium text-gray-700 dark:text-gray-200 hover:bg-gray-100 dark:hover:bg-slate-800 transition'
-                                            >
-                                                My Profile
+                                            className='absolute right-0 mt-3 w-40 rounded-xl border border-gray-200 dark:border-slate-700 bg-white dark:bg-slate-900 shadow-xl overflow-hidden z-50'>
+
+                                            <Link href="/profile" onClick={() => setProfileOpen(false)} className='block px-4 py-2.5 text-sm font-medium text-gray-700 dark:text-gray-200 hover:bg-gray-100 dark:hover:bg-slate-800 transition'>My Profile
                                             </Link>
-                                            <button
-                                                onClick={() => { handleSignOut(); setProfileOpen(false); }}
-                                                className='w-full text-left px-4 py-2.5 text-sm font-medium text-red-500 hover:bg-red-50 dark:hover:bg-red-500/10 transition'
-                                            >
-                                                Logout
+
+                                            <button onClick={() => { handleSignOut(); setProfileOpen(false); }} className='w-full text-left px-4 py-2.5 text-sm font-medium text-red-500 hover:bg-red-50 dark:hover:bg-red-500/10 transition'> Logout
                                             </button>
                                         </motion.div>
                                     )}
                                 </AnimatePresence>
                             </div>
                         ) : (
-                            // ✅ User logged out — Login/Register buttons
                             <div className='hidden lg:flex items-center gap-4'>
                                 <Link href="/login" passHref>
-                                    <Button variant="outline" className="font-semibold rounded-md dark:text-white text-indigo-600 dark:border-indigo-400 dark:text-indigo-400">
-                                        Login
+                                    <Button variant="outline" className="font-semibold rounded-md dark:text-white text-indigo-600 dark:border-indigo-400 dark:text-indigo-400">Login
                                     </Button>
                                 </Link>
                                 <Link href="/register" passHref>
@@ -147,14 +128,12 @@ const Navbar = () => {
                         )}
                     </div>
 
-                    {/* Mobile Menu Button */}
                     <button onClick={() => setIsOpen(!isOpen)} className='lg:hidden p-2 text-3xl text-gray-700 dark:text-gray-200 focus:outline-none'>
                         {isOpen ? <BiX /> : <BiMenu />}
                     </button>
                 </div>
             </div>
 
-            {/* Mobile Menu */}
             <AnimatePresence>
                 {isOpen && (
                     <>
@@ -177,13 +156,9 @@ const Navbar = () => {
                                 <ul className='flex flex-col gap-1'>
                                     {navLinks.map((link) => (
                                         <li key={link.href}>
-                                            <Link
-                                                onClick={() => setIsOpen(false)}
-                                                href={link.href}
-                                                className={`text-lg font-medium block p-2 rounded-md transition-all ${pathname === link.href
-                                                    ? 'text-indigo-600 bg-indigo-50 dark:bg-indigo-500/10'
-                                                    : 'text-gray-800 dark:text-gray-200 hover:bg-gray-50 dark:hover:bg-slate-800'
-                                                    }`}
+                                            <Link onClick={() => setIsOpen(false)} href={link.href} className={`text-lg font-medium block p-2 rounded-md transition-all ${pathname === link.href ? 'text-indigo-600 bg-indigo-50 dark:bg-indigo-500/10'
+                                                : 'text-gray-800 dark:text-gray-200 hover:bg-gray-50 dark:hover:bg-slate-800'
+                                                }`}
                                             >
                                                 {link.name}
                                             </Link>
@@ -201,11 +176,9 @@ const Navbar = () => {
                                     ) : user ? (
                                         <>
                                             <Link href="/profile" passHref>
-                                                <Button
-                                                    onClick={() => setIsOpen(false)}
+                                                <Button onClick={() => setIsOpen(false)}
                                                     variant="flat"
-                                                    className="w-full h-11 font-bold text-indigo-600 dark:text-indigo-400"
-                                                >
+                                                    className="w-full h-11 font-bold text-indigo-600 dark:text-indigo-400">
                                                     My Profile
                                                 </Button>
                                             </Link>

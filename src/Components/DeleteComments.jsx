@@ -1,8 +1,6 @@
 'use client'
 import { authClient } from '@/lib/auth-client';
-// import { auth } from '@/lib/auth';
 import { AlertDialog, Button } from '@heroui/react';
-// import { headers } from 'next/headers';
 import { FaTrash } from 'react-icons/fa';
 import { toast } from 'react-toastify';
 

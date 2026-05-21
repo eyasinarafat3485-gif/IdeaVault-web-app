@@ -69,20 +69,17 @@ export default function StartupBanner() {
           <div key={slide.id} className="relative h-full w-full flex-shrink-0">
             <Image src={slide.image} alt={slide.title} fill className="object-cover" priority />
 
-            {/* over */}
             <div className={`absolute inset-0 bg-gradient-to-br ${slide.bgGradient} opacity-75`} />
             <div className="absolute inset-0 bg-black/40" />
 
-            {/* Content */}
             <div className="relative z-10 flex h-full items-center">
               <div className="max-w-7xl mx-auto px-6 md:px-8 lg:px-14 w-full">
                 <div className="max-w-2xl space-y-2 md:space-y-5">
-                  {/* Icon */}
+
                   <div className="inline-flex items-center justify-center md:w-20 md:h-20 w-12 h-12 rounded-2xl bg-white/10 backdrop-blur-xl border border-white/20 text-white ">
                     {slide.icon}
                   </div>
 
-                  {/* Text */}
                   <div className="space-y-4">
                     <h1 className="text-3xl md:text-6xl lg:text-7xl font-bold text-white tracking-tighter leading-tight ">
                       {slide.title}
@@ -95,7 +92,6 @@ export default function StartupBanner() {
                     </p>
                   </div>
 
-                  {/* Buttons */}
                   <div className="flex flex-wrap gap-4 pt-2">
                     <button
                       onClick={() => document.getElementById('ideas-section')?.scrollIntoView({ behavior: 'smooth' })}
@@ -123,10 +119,8 @@ export default function StartupBanner() {
         ))}
       </div>
 
-      {/* Navigation Arrows */}
       <div className="absolute inset-0 z-30 flex md:items-center items-end justify-between pointer-events-none pb-1 md:pb-0 px-2">
 
-        {/* Left Arrow */}
         <button
           onClick={prevSlide}
           className="h-7 w-7 md:w-10 md:h-10 flex items-center justify-center rounded-full border border-white/30 bg-black/20 hover:bg-white/10 text-white backdrop-blur-md transition-all active:scale-90 pointer-events-auto"
@@ -134,7 +128,6 @@ export default function StartupBanner() {
           <FaChevronLeft className="w-5 h-5 md:w-7 md:h-7" />
         </button>
 
-        {/* Right Arrow */}
         <button
           onClick={nextSlide}
           className="h-7 w-7 md:w-10 md:h-10 flex items-center justify-center rounded-full border border-white/30 bg-black/20 hover:bg-white/10 text-white backdrop-blur-md transition-all active:scale-90 pointer-events-auto"
@@ -143,7 +136,6 @@ export default function StartupBanner() {
         </button>
       </div>
 
-      {/*(Dots)*/}
       <div className="absolute bottom-5 left-1/2 -translate-x-1/2 z-20 flex gap-3 px-4">
         {slides.map((_, idx) => (<button key={idx} onClick={() => goToSlide(idx)} className={`w-2.5 h-2.5 rounded-full transition-all ${idx === currentSlide ? 'bg-white scale-125' : 'bg-white/40 hover:bg-white/70'}`} />
         ))}
