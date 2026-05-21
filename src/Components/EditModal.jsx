@@ -53,7 +53,7 @@ const EditModal = ({ idea }) => {
                     <Modal.Dialog className="sm:max-w-xl">
                         <Modal.CloseTrigger />
                         <Modal.Header>
-                            <Modal.Icon className="bg-accent-soft text-accent-soft-foreground">
+                            <Modal.Icon className="bg-accent-soft text-accent-soft-foreground dark:bg-slate-900 ">
                                 <FaEdit className="size-5" />
                             </Modal.Icon>
                             <Modal.Heading>Edit idea</Modal.Heading>
