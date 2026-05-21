@@ -3,7 +3,7 @@
 import { Avatar, Button, Spinner } from '@heroui/react';
 import Image from 'next/image';
 import Link from 'next/link';
-import { usePathname } from 'next/navigation';
+import { redirect, usePathname } from 'next/navigation';
 import React, { useState, useEffect } from 'react';
 import { BiMenu, BiX } from 'react-icons/bi';
 import { Moon, Sun, Loader2 } from 'lucide-react';
@@ -19,6 +19,7 @@ const Navbar = () => {
 
     const handleSignOut = async () => {
         await authClient.signOut();
+        redirect('/login')
     };
 
     const [isOpen, setIsOpen] = useState(false);

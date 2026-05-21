@@ -135,11 +135,32 @@ const CommentSection = ({ idea }) => {
                   })}
                 </span>
               </div>
-              <div className='flex gap-3'>
+              
+              {/* <div className='flex gap-3'>
                 <EditComments c={c} id={c._id} onEditSuccess={handleEditCommentSuccess} />
 
                 <DeleteComments c={c} id={c._id} onDeleteSuccess={handleDeleteCommentSuccess} />
-              </div>
+              </div> */}
+
+              {
+                user?.id === c?.userId && (
+                  <div className='flex gap-3'>
+
+                    <EditComments
+                      c={c}
+                      id={c._id}
+                      onEditSuccess={handleEditCommentSuccess}
+                    />
+
+                    <DeleteComments
+                      c={c}
+                      id={c._id}
+                      onDeleteSuccess={handleDeleteCommentSuccess}
+                    />
+
+                  </div>
+                )
+              }
             </div>
           ))
         )}

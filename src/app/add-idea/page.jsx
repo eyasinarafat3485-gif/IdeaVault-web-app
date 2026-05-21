@@ -75,10 +75,7 @@ const AddIdeaPage = () => {
                 </p>
             </div>
 
-            <form
-                onSubmit={onSubmit}
-                className="p-10 space-y-8 mx-auto border border-gray-500 rounded-xl"
-            >
+            <form onSubmit={onSubmit} className="p-10 space-y-8 mx-auto border border-gray-500 rounded-xl" >
 
                 <div className="grid grid-cols-1 md:grid-cols-2 gap-8">
 
@@ -119,15 +116,8 @@ const AddIdeaPage = () => {
                     </TextField>
 
                     <div>
-                        <Select
-                            name="category"
-                            isRequired
-                            className="w-full"
-                            placeholder="Select category"
-                        >
-
+                        <Select name="category" isRequired className="w-full" placeholder="Select category">
                             <Label>Category</Label>
-
                             <Select.Trigger className="rounded-2xl">
                                 <Select.Value />
                                 <Select.Indicator />
@@ -135,11 +125,7 @@ const AddIdeaPage = () => {
 
                             <Select.Popover>
                                 <ListBox>
-
-                                    <ListBox.Item
-                                        id="Tech"
-                                        textValue="Tech"
-                                    >
+                                    <ListBox.Item id="Tech" textValue="Tech" >
                                         Tech
                                         <ListBox.ItemIndicator />
                                     </ListBox.Item>
@@ -160,10 +146,7 @@ const AddIdeaPage = () => {
                                         <ListBox.ItemIndicator />
                                     </ListBox.Item>
 
-                                    <ListBox.Item
-                                        id="Education"
-                                        textValue="Education"
-                                    >
+                                    <ListBox.Item id="Education" textValue="Education" >
                                         Education
                                         <ListBox.ItemIndicator />
                                     </ListBox.Item>
@@ -175,62 +158,34 @@ const AddIdeaPage = () => {
 
                     <TextField name="tags">
                         <Label>Tags (optional)</Label>
-
-                        <Input
-                            placeholder="Enter your tags"
-                            className="rounded-2xl"
-                        />
-
+                        <Input placeholder="Enter your tags" className="rounded-2xl" />
                         <FieldError />
                     </TextField>
 
                     <div className="md:col-span-2">
                         <TextField name="imageUrl" isRequired>
                             <Label>Image URL</Label>
-
-                            <Input
-                                type="url"
-                                placeholder="Enter your image url"
-                                className="rounded-2xl"
-                            />
-
+                            <Input type="url" placeholder="Enter your image url" className="rounded-2xl" />
                             <FieldError />
                         </TextField>
                     </div>
 
                     <TextField name="estimatedBudget">
                         <Label>Estimated Budget (optional)</Label>
-
-                        <Input
-                            type="number"
-                            placeholder="1299"
-                            className="rounded-2xl"
-                        />
-
+                        <Input type="number" placeholder="1299" className="rounded-2xl" />
                         <FieldError />
                     </TextField>
 
                     <TextField name="targetAudience" isRequired>
                         <Label>Target Audience</Label>
-
-                        <Input
-                            placeholder="Enter your target audience"
-                            type="text"
-                            className="rounded-2xl"
-                        />
-
+                        <Input placeholder="Enter your target audience" type="text" className="rounded-2xl" />
                         <FieldError />
                     </TextField>
 
                     <div className="md:col-span-2">
                         <TextField name="problemStatement" isRequired>
                             <Label>Problem Statement</Label>
-
-                            <TextArea
-                                placeholder="Enter your problem statement"
-                                className="rounded-3xl"
-                            />
-
+                            <TextArea placeholder="Enter your problem statement" className="rounded-3xl" />
                             <FieldError />
                         </TextField>
                     </div>
@@ -238,22 +193,13 @@ const AddIdeaPage = () => {
                     <div className="md:col-span-2">
                         <TextField name="proposedSolution" isRequired>
                             <Label>Proposed Solution</Label>
-
-                            <TextArea
-                                placeholder="Enter your proposed solution"
-                                className="rounded-3xl"
-                            />
-
+                            <TextArea placeholder="Enter your proposed solution" className="rounded-3xl" />
                             <FieldError />
                         </TextField>
                     </div>
                 </div>
 
-                <Button
-                    type="submit"
-                    variant="outline"
-                    className="rounded-none w-full bg-cyan-500 text-white"
-                >
+                <Button type="submit" variant="outline" className="rounded-none w-full bg-cyan-500 text-white">
                     Add Idea
                 </Button>
 
