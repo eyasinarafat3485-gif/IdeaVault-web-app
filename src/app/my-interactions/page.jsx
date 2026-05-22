@@ -12,7 +12,7 @@ const MyInteractionsPage = async () => {
     })
     console.log(token);
 
-    const user = session?.user;
+    // const user = session?.user;
     // const res = await fetch(`${process.env.NEXT_PUBLIC_SERVER_URL}/api/comments/${user?.id}`,
     //     {
     //         headers: {
