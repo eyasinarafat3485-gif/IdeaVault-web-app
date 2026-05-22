@@ -7,34 +7,29 @@ const MyInteractionsPage = async () => {
     const session = await auth.api.getSession({
         headers: await headers(),
     });
-    const { token } = await auth.api.getToken({
-        headers: await headers()
-    })
+
+    const tokenData = await auth.api.getToken({
+        headers: await headers(),
+    });
+
+    const token = tokenData?.token;
+
     console.log(token);
 
-    // const user = session?.user;
-    // const res = await fetch(`${process.env.NEXT_PUBLIC_SERVER_URL}/api/comments/${user?.id}`,
-    //     {
-    //         headers: {
-    //             authorization: `Bearer ${token}`
-    //         }
-    //     },
-    //     {
-    //         cache: 'no-store',
-    //     }
-    // );
-
-const res = await fetch(
-    `${process.env.NEXT_PUBLIC_SERVER_URL}/api/comments`,
-    {
-        headers: {
-            authorization: `Bearer ${token}`,
-        },
-        cache: 'no-store',
-    }
-);
+    const res = await fetch(
+        `${process.env.NEXT_PUBLIC_SERVER_URL}/api/comments`,
+        {
+            method: 'GET',
+            headers: {
+                Authorization: `Bearer ${token}`,
+            },
+            cache: 'no-store',
+        }
+    );
 
     const comments = await res.json();
+
+    console.log(comments);
 
     return (
         <div className="pt-10 md:pt-14 min-h-screen bg-white dark:bg-slate-900">
