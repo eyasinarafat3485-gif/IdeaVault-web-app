@@ -1,36 +1,54 @@
-This is a [Next.js](https://nextjs.org) project bootstrapped with [`create-next-app`](https://github.com/vercel/next.js/tree/canary/packages/create-next-app).
+# 🚀 IdeaVault
 
-## Getting Started
+A modern platform where users can share innovative startup ideas, explore ideas from others, and interact through comments and discussions.
 
-First, run the development server:
+## 🌐 Live Website
+
+🔗 Live Site: https://idea-vault-web-app.vercel.app
+
+---
+
+## 📌 Features
+
+- ✅ User Authentication & Authorization
+- ✅ Add New Startup Ideas
+- ✅ Browse All Ideas in Responsive Grid Layout
+- ✅ Detailed Idea View with Full Information
+- ✅ Comment System for User Interaction
+- ✅ Private Routes for Secure Pages
+- ✅ Modern Responsive UI Design
+- ✅ Dynamic Loading & Toast Notifications
+- ✅ MongoDB Database Integration
+- ✅ Dark & Light Theme Support
+
+---
+
+## 🛠️ Technologies Used
+
+### Frontend
+- Next.js
+- React.js
+- Tailwind CSS
+- HeroUI
+- Framer Motion
+
+### Backend
+- Node.js
+- Express.js
+- MongoDB
+
+### Authentication
+- Better Auth / JWT
+
+---
+
+## 📦 NPM Packages Used
 
 ```bash
-npm run dev
-# or
-yarn dev
-# or
-pnpm dev
-# or
-bun dev
-```
-
-Open [http://localhost:3000](http://localhost:3000) with your browser to see the result.
-
-You can start editing the page by modifying `app/page.js`. The page auto-updates as you edit the file.
-
-This project uses [`next/font`](https://nextjs.org/docs/app/building-your-application/optimizing/fonts) to automatically optimize and load [Geist](https://vercel.com/font), a new font family for Vercel.
-
-## Learn More
-
-To learn more about Next.js, take a look at the following resources:
-
-- [Next.js Documentation](https://nextjs.org/docs) - learn about Next.js features and API.
-- [Learn Next.js](https://nextjs.org/learn) - an interactive Next.js tutorial.
-
-You can check out [the Next.js GitHub repository](https://github.com/vercel/next.js) - your feedback and contributions are welcome!
-
-## Deploy on Vercel
-
-The easiest way to deploy your Next.js app is to use the [Vercel Platform](https://vercel.com/new?utm_medium=default-template&filter=next.js&utm_source=create-next-app&utm_campaign=create-next-app-readme) from the creators of Next.js.
-
-Check out our [Next.js deployment documentation](https://nextjs.org/docs/app/building-your-application/deploying) for more details.
+npm install next react react-dom
+npm install tailwindcss
+npm install mongodb
+npm install framer-motion
+npm install react-icons
+npm install cors
+npm install @heroui/react
