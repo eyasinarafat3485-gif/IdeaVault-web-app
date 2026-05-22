@@ -13,16 +13,26 @@ const MyInteractionsPage = async () => {
     console.log(token);
 
     const user = session?.user;
-    const res = await fetch(`${process.env.NEXT_PUBLIC_SERVER_URL}/api/comments/${user?.id}`,
-        {
-            headers: {
-                authorization: `Bearer ${token}`
-            }
+    // const res = await fetch(`${process.env.NEXT_PUBLIC_SERVER_URL}/api/comments/${user?.id}`,
+    //     {
+    //         headers: {
+    //             authorization: `Bearer ${token}`
+    //         }
+    //     },
+    //     {
+    //         cache: 'no-store',
+    //     }
+    // );
+
+const res = await fetch(
+    `${process.env.NEXT_PUBLIC_SERVER_URL}/api/comments`,
+    {
+        headers: {
+            authorization: `Bearer ${token}`,
         },
-        {
-            cache: 'no-store',
-        }
-    );
+        cache: 'no-store',
+    }
+);
 
     const comments = await res.json();
 
@@ -68,12 +78,10 @@ const MyInteractionsPage = async () => {
                     ) : (
                         <div className="text-center py-20 border border-dashed border-slate-300 dark:border-slate-700 rounded-2xl">
                             <h3 className="text-xl font-semibold text-slate-700 dark:text-slate-300">
-                                No interactions found
-                            </h3>
+                                No interactions found</h3>
 
                             <p className="text-slate-500 mt-2">
-                                You have not commented on any ideas yet.
-                            </p>
+                                You have not commented on any ideas yet.</p>
 
                             <Link href="/ideas" className="inline-block mt-5 px-5 py-2 rounded-lg bg-indigo-600 text-white hover:bg-indigo-700 transition" >
                                 Explore Ideas
